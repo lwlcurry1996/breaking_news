@@ -11,14 +11,6 @@
     <link rel="stylesheet" href="/assets/fonts/iconfont.css">
     <!-- 引入自己的css -->
     <link rel="stylesheet" href="/assets/css/index.css">
-    <!-- 引入layUIjs文件 -->
-    <script src="/assets/lib/layui/layui.all.js"></script>
-    <!-- 引入jquery -->
-    <script src="/assets/lib/jquery.js"></script>
-    <!-- 导入baseAPI -->
-    <script src="/assets/js/baseAPI.js"></script>
-    <!-- 引入自己的js -->
-    <script src="/assets/js/index.js"></script>
 </head>
 
 <body class="layui-layout-body">
@@ -30,7 +22,7 @@
             <!-- 头部区域（可配合layui已有的水平导航） -->
             <ul class="layui-nav layui-layout-right">
                 <li class="layui-nav-item">
-                    <a href="javascript:;" class="userinfo">
+                    <a href="/user/user_info.html" target="fm" class="userinfo">
                         <img src="http://t.cn/RCzsdCq" class="layui-nav-img">
                         <span class="text-avatar">L</span>
                         个人中心
@@ -53,7 +45,7 @@
                 <div class="userinfo">
                     <img src="http://t.cn/RCzsdCq" class="layui-nav-img">
                     <span class="text-avatar">L</span>
-                    <span id="welcome">欢迎</span>
+                    <span id="welcome"></span>
                 </div>
                 <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
                 <ul class="layui-nav layui-nav-tree" lay-filter="test" lay-shrink="all">
@@ -70,9 +62,12 @@
                     <li class="layui-nav-item">
                         <a href="javascript:;"><span class="iconfont icon-user"></span>个人中心</a>
                         <dl class="layui-nav-child">
-                            <dd><a href="javascript:;"><i class="layui-icon layui-icon-senior"></i>基本资料</a></dd>
-                            <dd><a href="javascript:;"><i class="layui-icon layui-icon-face-surprised"></i>更换头像</a></dd>
-                            <dd><a href="javascript:;"><i class="layui-icon layui-icon-set"></i>重置密码</a></dd>
+                            <dd><a href="/user/user_info.html" target="fm"><i
+                                        class="layui-icon layui-icon-senior"></i>基本资料</a></dd>
+                            <dd><a href="/user/user_avatar.html" target="fm"><i
+                                        class="layui-icon layui-icon-face-surprised"></i>更换头像</a></dd>
+                            <dd><a href="/user/user_pwd.html" target="fm"><i
+                                        class="layui-icon layui-icon-set"></i>重置密码</a></dd>
                         </dl>
                     </li>
 
@@ -90,12 +85,14 @@
             © www.itheima.com - 黑马程序员
         </div>
     </div>
-    <script>
-        //JavaScript代码区域
-        layui.use('element', function () {
-            var element = layui.element;
-        });
-    </script>
+    <!-- 引入layUIjs文件 -->
+    <script src="/assets/lib/layui/layui.all.js"></script>
+    <!-- 引入jquery -->
+    <script src="/assets/lib/jquery.js"></script>
+    <!-- 导入baseAPI -->
+    <script src="/assets/js/baseAPI.js"></script>
+    <!-- 引入自己的js -->
+    <script src="/assets/js/index.js"></script>
 </body>
 
 </html>
