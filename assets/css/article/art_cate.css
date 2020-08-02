@@ -1,0 +1,13 @@
+body {
+    margin: 0;
+    padding: 15px;
+    background: #f2f3f5;
+}
+
+.layui-card-header {
+    display: flex;
+    /* 主轴方向的对其方式 */
+    justify-content: space-between;
+    /* 测轴 */
+    align-items: center;
+}
