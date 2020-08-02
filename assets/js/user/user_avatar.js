@@ -27,4 +27,33 @@ $(function () {
             .cropper(options) // 重新初始化裁剪区域
     })
 
+    
+    //更换头像 上传到服务器
+    $('#btnUpload').on('click', function () {
+        //获取base64的图片
+        var dataURL = $image
+            .cropper('getCroppedCanvas', { // 创建一个 Canvas 画布
+                width: 100,
+                height: 100
+            })
+            .toDataURL('image/png') // 将 Canvas 画布上的内容，转化为 base64 格式的字符串
+        //ajax
+        $.ajax({
+            type: 'POST',
+            url: '/my/update/avatar',
+            data: {
+                avatar: dataURL
+            },
+            success: function (res) {
+                //返回校验
+                if (res.status !== 0) {
+                    return layui.layer.msg(res.message)
+                }
+                layui.layer.msg('头像上传成功')
+                window.parent.getUserInfo()
+            }
+        })
+    })
+
+
 })
