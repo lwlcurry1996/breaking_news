@@ -21,7 +21,7 @@ $(function () {
 
     //添加文章分类
     $('#btnAddCate').on('click', function () {
-        layer.open({
+        index = layer.open({
             type: 1,
             area: ['500px', '250px'],
             title: '添加文章分类',
@@ -32,7 +32,7 @@ $(function () {
     //添加文章分类
     var index = null;
     $('body').on('submit', '#boxAddCate', function (e) {
-        console.log($(this).serialize());
+        // console.log($(this).serialize());
         e.preventDefault()
         $.ajax({
             type: 'POST',
@@ -40,16 +40,16 @@ $(function () {
             data: $(this).serialize(),
             success: function (res) {
                 if (res.status !== 0) {
-                    return layui.layer.msg('新增文章分类失败')
+                    return layer.msg('新增文章分类失败')
                 }
                 //新增成功之后重新渲染
                 initArtCateList()
-                layui.layer.msg('新增文章分类成功')
-
+                layer.msg('新增文章分类成功')
                 //关闭添加区域
-                layui.layer.close(index)
+                layer.close(index)
             }
         })
+
     })
 
     //通过代理的形式.为btn-edit按钮绑定点击事件
@@ -73,22 +73,22 @@ $(function () {
                 form.val('form-edit', res.data)
             }
         })
-
     })
 
-
     //修改的数据追加到页面
-    $('tbody').on('submit', "#form-edit", function (e) {
+    $('body').on('submit', "#form-edit", function (e) {
+        alert('111');
         e.preventDefault()
         $.ajax({
             type: 'POST',
             url: '/my/article/updatecate',
             data: $(this).serialize(),
             success: function (res) {
+                // console.log(res);
                 if (res.status !== 0) {
-                    return layer.msg('更新失败')
+                    return layer.msg('更新失败!')
                 }
-                leyer.msg('更新成功!')
+                layer.msg('更新成功!')
                 layer.close(indexEdit)
                 initArtCateList()
             }
@@ -112,7 +112,7 @@ $(function () {
                     if (res.status !== 0) {
                         return layer.msg('删除失败!')
                     }
-                    layer.msg('删除成功')
+                    layer.msg('删除成功!')
                     layer.close(index);
                     initArtCateList()
                 }
